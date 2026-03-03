@@ -1,0 +1,434 @@
+/* =========================
+   Romantic Floral Background
+========================= */
+
+body {
+  content: "🌸   🌺   🌷   🌹   🌸   🌺   🌷   🌹";
+  margin: 0;
+  background-color: #ffe5ec;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,105,180,0.18) 0 60px, transparent 61px),
+    radial-gradient(circle at 85% 25%, rgba(255,20,147,0.15) 0 50px, transparent 51px),
+    radial-gradient(circle at 25% 80%, rgba(255,105,180,0.18) 0 70px, transparent 71px),
+    radial-gradient(circle at 90% 75%, rgba(255,0,128,0.12) 0 55px, transparent 56px);
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+}
+
+body::after {
+  content: "🌸   🌺   🌷   🌹   🌸   🌺   🌷   🌹";
+  position: fixed;
+  bottom: 14%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 2;
+  animation: floatFlowers 6s ease-in-out infinite;
+    background-color: #ffe5ec;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,105,180,0.18) 0 60px, transparent 61px),
+    radial-gradient(circle at 85% 25%, rgba(255,20,147,0.15) 0 50px, transparent 51px),
+    radial-gradient(circle at 25% 80%, rgba(255,105,180,0.18) 0 70px, transparent 71px),
+    radial-gradient(circle at 90% 75%, rgba(255,0,128,0.12) 0 55px, transparent 56px);
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   Title
+========================= */
+
+.candle-count-display {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #ff4d6d, #ff8fab);
+  padding: 12px 22px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(255, 77, 109, 0.35);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #ffc2d1;
+}
+
+/* =========================
+   Cake Base
+========================= */
+
+.cake {
+  position: absolute;
+  width: 260px;
+  height: 220px;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -130px;
+  filter: drop-shadow(0 18px 25px rgba(0,0,0,0.25));
+}
+
+/* Pink glow behind cake */
+.cake::before {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  top: -90px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(255,105,180,0.28) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.cake > * {
+  position: absolute;
+}
+
+/* =========================
+   Plate
+========================= */
+
+.plate {
+  width: 300px;
+  height: 120px;
+  position: absolute;
+  bottom: -14px;
+  left: -20px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #ffe3ec 30%, #ffb3c7 70%, #ff8fab 100%);
+  border-radius: 50%;
+  box-shadow:
+    0 10px 0 rgba(0,0,0,0.05),
+    0 18px 35px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   Layers
+========================= */
+
+.layer {
+  width: 260px;
+  height: 105px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, #ffd6e5 0%, #ff8fab 35%, #fb6f92 65%, #d81b60 100%);
+  box-shadow:
+    0 3px 0 rgba(0,0,0,0.08),
+    0 10px 0 rgba(251,111,146,0.65),
+    0 16px 0 rgba(216,27,96,0.55);
+}
+
+.layer-top   { top: 0px;  transform: scaleX(0.98); }
+.layer-middle{ top: 38px; transform: scaleX(0.99); }
+.layer-bottom{ top: 76px; }
+
+/* =========================
+   Icing
+========================= */
+
+.icing {
+  top: 4px;
+  left: 10px;
+  width: 240px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #fff0f6 0%, #ffc2d1 35%, #ff8fab 70%, #fb6f92 100%);
+  box-shadow:
+    inset 0 8px 14px rgba(255,255,255,0.6),
+    inset 0 -10px 16px rgba(216,27,96,0.25);
+  z-index: 3;
+}
+
+/* Gloss highlight */
+.icing:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  width: 190px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0));
+}
+
+/* Sprinkles */
+.icing:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 45%, white 0 2px, transparent 2px),
+    radial-gradient(circle at 60% 60%, #ff4d6d 0 2px, transparent 2px),
+    radial-gradient(circle at 75% 40%, white 0 2px, transparent 2px),
+    radial-gradient(circle at 45% 30%, #ff006e 0 2px, transparent 2px),
+    radial-gradient(circle at 20% 55%, white 0 2px, transparent 2px);
+  opacity: 0.8;
+}
+
+/* =========================
+   Drips
+========================= */
+
+.drip {
+  width: 56px;
+  height: 62px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  background: linear-gradient(180deg, #ff8fab 0%, #fb6f92 55%, #d81b60 100%);
+  box-shadow: inset 0 10px 12px rgba(255,255,255,0.28);
+  z-index: 2;
+}
+
+.drip1 {
+  top: 54px;
+  left: 16px;
+  transform: skewY(14deg);
+  height: 52px;
+  width: 44px;
+}
+
+.drip2 {
+  top: 70px;
+  left: 184px;
+}
+
+.drip3 {
+  top: 56px;
+  left: 96px;
+  width: 90px;
+  height: 58px;
+}
+
+/* =========================
+   Candle
+========================= */
+
+.candle {
+  background: linear-gradient(180deg, #ff4d6d 0%, #c1121f 100%);
+  width: 12px;
+  height: 35px;
+  border-radius: 6px/3px;
+  top: -20px;
+  left: 50%;
+  margin-left: -8px;
+  z-index: 10;
+}
+
+.candle:before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 200, 215, 0.35);
+}
+
+.candle.out .flame {
+  display: none;
+}
+
+/* =========================
+   Flame
+========================= */
+
+.flame {
+  position: absolute;
+  background: linear-gradient(180deg, #fff176, orange, #ff5722);
+  width: 10px;
+  height: 25px;
+  border-radius: 50%;
+  top: -34px;
+  left: 50%;
+  margin-left: -7.5px;
+  box-shadow:
+    0 0 10px rgba(255,165,0,0.6),
+    0 0 30px rgba(255,140,0,0.6);
+  transform-origin: 50% 90%;
+  animation: flicker 1s ease-in-out alternate infinite;
+}
+
+@keyframes flicker {
+  0% { transform: scaleY(1) skewX(3deg); }
+  50% { transform: scaleY(1.1) skewX(-4deg); }
+  100% { transform: scaleY(0.95) skewX(3deg); }
+}
+
+@keyframes floatFlowers {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* =========================
+   Footer
+========================= */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff0f6;
+  color: #fb6f92;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart {
+  animation: blink 1s linear infinite;
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* =========================
+   Romantic Photos
+========================= */
+
+/* =========================
+   4 Romantic Photos Layout
+========================= */
+
+.photo {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #fff;
+  background: white;
+  box-shadow:
+    0 10px 30px rgba(255, 77, 109, 0.4),
+    0 0 40px rgba(255,105,180,0.3);
+  transition: transform 0.4s ease;
+  z-index: 5;
+}
+
+.photo:hover {
+  transform: scale(1.07);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LEFT SIDE */
+
+.photo-left {
+  left: 8%;
+}
+
+.photo-left-top {
+  top: 20%;
+}
+
+.photo-left-bottom {
+  top: 55%;
+}
+
+/* RIGHT SIDE */
+
+.photo-right {
+  right: 8%;
+}
+
+.photo-right-top {
+  top: 20%;
+}
+
+.photo-right-bottom {
+  top: 55%;
+}
+
+/* =========================
+   Decorative Flowers Glow
+========================= */
+
+
+.flower {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  z-index: 2;            /* above background, below photos/cake */
+  pointer-events: none;
+  opacity: 0.9;          /* MUCH more visible */
+  filter: drop-shadow(0 10px 20px rgba(255, 77, 109, 0.25));
+}
+
+/* Flower shape using gradients (no images) */
+.flower::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255, 105, 180, 0.95) 0 45px, transparent 46px),
+    radial-gradient(circle at 85% 50%, rgba(255, 20, 147, 0.9) 0 45px, transparent 46px),
+    radial-gradient(circle at 50% 85%, rgba(255, 105, 180, 0.95) 0 45px, transparent 46px),
+    radial-gradient(circle at 15% 50%, rgba(255, 20, 147, 0.9) 0 45px, transparent 46px),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.95) 0 28px, rgba(255, 244, 248, 0.6) 35px, transparent 36px);
+}
+
+/* Positions */
+.flower-left {
+  top: 26%;
+  left: 1%;
+}
+
+.flower-right {
+  top: 26%;
+  right: 1%;
+}
+
+/* =========================
+   Photos Next To Cake
+========================= */
+
+.photo-cake-left,
+.photo-cake-right {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;          /* mismo tamaño que las otras */
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #fff;
+  background: white;
+  box-shadow:
+    0 10px 30px rgba(255, 77, 109, 0.4),
+    0 0 40px rgba(255,105,180,0.3);
+  z-index: 5;
+  transition: transform 0.4s ease;
+}
+
+.photo-cake-left:hover,
+.photo-cake-right:hover {
+  transform: translateY(-50%) scale(1.07);
+}
+
+/* Ahora más separadas del pastel */
+
+.photo-cake-left {
+  left: calc(50% - 360px);
+}
+
+.photo-cake-right {
+  right: calc(50% - 360px);
+}
