@@ -3,7 +3,6 @@
 ========================= */
 
 body {
-  content: "🌸   🌺   🌷   🌹   🌸   🌺   🌷   🌹";
   margin: 0;
   background-color: #ffe5ec;
   background-image:
@@ -27,14 +26,6 @@ body::after {
   pointer-events: none;
   z-index: 2;
   animation: floatFlowers 6s ease-in-out infinite;
-    background-color: #ffe5ec;
-  background-image:
-    radial-gradient(circle at 15% 20%, rgba(255,105,180,0.18) 0 60px, transparent 61px),
-    radial-gradient(circle at 85% 25%, rgba(255,20,147,0.15) 0 50px, transparent 51px),
-    radial-gradient(circle at 25% 80%, rgba(255,105,180,0.18) 0 70px, transparent 71px),
-    radial-gradient(circle at 90% 75%, rgba(255,0,128,0.12) 0 55px, transparent 56px);
-  background-repeat: no-repeat;
-  font-family: Arial, sans-serif;
 }
 
 /* =========================
@@ -403,9 +394,8 @@ body::after {
 .photo-cake-left,
 .photo-cake-right {
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 180px;          /* mismo tamaño que las otras */
+  top: 41%;              /* ajusta 38%–45% si quieres */
+  width: 180px;
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
@@ -416,32 +406,36 @@ body::after {
     0 0 40px rgba(255,105,180,0.3);
   z-index: 5;
   transition: transform 0.4s ease;
+  transform-origin: center;
 }
 
+/* Zoom grande sin moverse */
 .photo-cake-left:hover,
 .photo-cake-right:hover {
-  transform: translateY(-50%) scale(1.07);
+  transform: scale(1.6);     /* cambia 1.6 a 1.8 si quieres MÁS */
+  z-index: 999;              /* para que quede por encima de todo */
 }
 
 /* Ahora más separadas del pastel */
 
 .photo-cake-left {
-  left: calc(50% - 360px);
+  left: calc(50% - 400px);
 }
 
 .photo-cake-right {
-  right: calc(50% - 360px);
+  right: calc(50% - 400px);
 }
 
+/* Chrome-safe circular video (prevents top-only crop) */
 .video-frame {
   overflow: hidden;
   border-radius: 50%;
-  line-height: 0;          /* evita recortes por baseline */
-  font-size: 0;            /* idem */
+  line-height: 0;
+  font-size: 0;
   transform: translateZ(0);
   will-change: transform;
 
-  /* Fallbacks/forzado de recorte en Chrome */
+  /* Force proper clipping in Chrome */
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   clip-path: circle(50% at 50% 50%);
 }
